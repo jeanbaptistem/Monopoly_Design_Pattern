@@ -14,7 +14,7 @@
             if (player.IsInJail)
             {
                 View.PrintPlayerIsInJailSince(player);
-                if (player.NbTurnInJail < 3 && player.NbTurnInJail != 0)
+                if (player.NbTurnInJail < 3 && player.NbTurnInJail != -1)
                 {
                     int roll1 = gm.Dice1.Roll();
                     int roll2 = gm.Dice2.Roll();
