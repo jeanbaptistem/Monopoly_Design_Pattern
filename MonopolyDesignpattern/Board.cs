@@ -20,6 +20,9 @@ namespace MonopolyDesignPattern
             {
                 switch (nbTile)
                 {
+                    case 0:
+                        ListOfTiles.Add(0, new Start(0));
+                        break;
                     case 10:
                         ListOfTiles.Add(10, new Jail(nbTile));
                         break;
