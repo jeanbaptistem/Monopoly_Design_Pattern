@@ -80,50 +80,27 @@ namespace MonopolyDesignPattern
             Console.WriteLine("Turn n°{0}/{1}", nbTurn, maxTurn);
         }
 
-        static void printGame(SortedDictionary<int, Tile> ListOfTiles)
+        internal static void PrintGame(SortedDictionary<int, Tile> ListOfTiles)
         {
-            List<Tile> tiles_0_10 = new List<Tile>();
-            List<Tile> tiles_11_20_31_40 = new List<Tile>();
-            List<Tile> tiles_21_30 = new List<Tile>();
-
-            foreach (KeyValuePair<int, Tile> tile in ListOfTiles)
+            int i;
+            for(i=0; i<=9; i++)
             {
-                if (tile.Key >= 0 && tile.Key < 11)
-                {
-                    tiles_0_10.Add(tile.Value);
-                }
-                else if (tile.Key > 10 && tile.Key < 21 || tile.Key > 30 && tile.Key < 41)
-                {
-                    tiles_11_20_31_40.Add(tile.Value);
-                }
-                else if (tile.Key > 20 && tile.Key < 31)
-                {
-                    tiles_21_30.Add(tile.Value);
-                }
-                else
-                {
-                    tiles_11_20_31_40.Add(tile.Value);
-                }
+                Tile tile = ListOfTiles[i];
+                Console.Write("|{0, 6}({1, 2})|", tile.Name, tile.Index);
             }
-
-            int count = tiles_11_20_31_40.Count;
-
-            foreach (Tile tile in tiles_0_10)
+            for(i=10; i<=19; i++)
             {
-                Console.Write("|" + tile.Name + "| ");
+                Tile tileR = ListOfTiles[i];
+                Tile tileL = ListOfTiles[ListOfTiles.Count - i + 9];
+                Console.Write("\n|{0, 6}({1, 2})|", tileL.Name, tileL.Index);
+                Console.Write("".PadRight(96));
+                Console.Write("|{0, 6}({1, 2})|", tileR.Name, tileR.Index);
             }
-
-            for (int i = 0; i < count; i++)
+            for (i=29; i>=20; i--)
             {
-                Console.Write("\n|" + tiles_11_20_31_40[count - i].Name + "|          |" + tiles_11_20_31_40[i].Name + "|");
+                Tile tile = ListOfTiles[i];
+                Console.Write("|{0, 6}({1, 2})|", tile.Name, tile.Index);
             }
-
-            tiles_21_30.Reverse();
-            foreach (Tile tile in tiles_21_30)
-            {
-                Console.Write("|" + tile.Name + "| ");
-            }
-
         }
 
         internal static void PrintTripleDoubleRoll()

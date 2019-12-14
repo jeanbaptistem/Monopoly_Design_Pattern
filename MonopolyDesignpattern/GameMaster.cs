@@ -77,7 +77,7 @@ namespace MonopolyDesignPattern
                     Tile jail = Board.ListOfTiles[10];
                     jail.Action(currentPlayer, this, Board);
                 }
-
+                View.PrintGame(Board.ListOfTiles);
                 View.PrintNextTurn();
                 currentTurn++;
                 ListOfAllPlayer.Enqueue(currentPlayer);
