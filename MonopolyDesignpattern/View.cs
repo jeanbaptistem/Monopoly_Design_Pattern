@@ -59,6 +59,11 @@ namespace MonopolyDesignPattern
             Console.WriteLine("First roll {0}, second roll {1}", roll1, roll2);
         }
 
+        internal static void PrintJailVisitOnly()
+        {
+            Console.WriteLine("Jail : visit only");
+        }
+
         internal static void PrintCurrentTile(Tile tile)
         {
             Console.WriteLine("Your are on the tile: \"{0}\" ({1})", tile.Name, tile.Index);

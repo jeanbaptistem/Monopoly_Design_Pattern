@@ -47,6 +47,10 @@
                     currentTile.Action(player, gm, board);
                 }
             }
+            else
+            {
+                View.PrintJailVisitOnly();
+            }
         }
     }
 }
